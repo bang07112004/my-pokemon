@@ -6,7 +6,7 @@ import Link from "next/link";
 import PokeFeed from "./PokeFeed";
 
 export default function Home() {
-  const [pokemon, setPokemon] = useState(null);
+  const [pokemon, setPokemon] = useState<Pokemon | null>(null);
   const [show, setShow] = useState(false);
 
   const handleSearch = async (query) => {
@@ -63,7 +63,17 @@ export default function Home() {
             </div>
           </div>
         )}
-        {pokemon === null && show && <h1>Not Found</h1>}
+        {pokemon === null && show && (
+          <div className="flex items-center gap-4 my-2">
+            <button
+              onClick={() => setShow(false)}
+              className="cursor-pointer border-2 px-5 py-2 max-h-fit"
+            >
+              Close
+            </button>
+            <h1>Not Found</h1>
+          </div>
+        )}
       </div>
     </div>
   );
