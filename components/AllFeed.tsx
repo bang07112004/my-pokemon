@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PokeFeed from "./PokeFeed";
 import Pagination from "./Pagination";
 import Link from "next/link";
@@ -10,6 +10,18 @@ function AllFeed({}: Props) {
   const [pokemons, setPokemons] = useState<Array<any>>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pokemonsPerPage] = useState<number>(30);
+  const isFirstRender = useRef<boolean>(true);
+  useEffect(() => {
+    if (isFirstRender.current) {
+      const cachedPage = localStorage.getItem("currentPage");
+      if (cachedPage) {
+        setCurrentPage(Number(cachedPage));
+      }
+      isFirstRender.current = false;
+    } else {
+      localStorage.setItem("currentPage", currentPage.toString());
+    }
+  }, [currentPage]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +39,6 @@ function AllFeed({}: Props) {
   const onPageChange = (page: number) => {
     setCurrentPage(page);
   };
-
   const indexOfLastPokemon = currentPage * pokemonsPerPage;
   const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
   const currentPokemons = pokemons.slice(
