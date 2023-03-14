@@ -9,12 +9,12 @@ type Props = {};
 function AllFeed({}: Props) {
   const [pokemons, setPokemons] = useState<Array<any>>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [pokemonsPerPage] = useState<number>(100);
+  const [pokemonsPerPage] = useState<number>(30);
 
   useEffect(() => {
     const fetchData = async () => {
       const pokemonList = [];
-      for (let i = 1; i <= 500; i++) {
+      for (let i = 1; i <= 100; i++) {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
         const data = await response.json();
         pokemonList.push(data);
