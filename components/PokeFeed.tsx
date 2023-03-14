@@ -54,7 +54,7 @@ function PokeFeed({ name, weight, id, image, type }: Props) {
       <Image src={image} alt={name} width={150} height={150} />
       <div className="flex flex-col items-center justify-center">
         <h1>{name}</h1>
-        <p>Weight: {weight}</p>
+        <p>Weight: {weight} kg</p>
         <p>Type:{type.join("/")}</p>
       </div>
     </div>
