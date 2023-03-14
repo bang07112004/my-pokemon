@@ -9,14 +9,14 @@ export default function Home() {
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
   const [show, setShow] = useState(false);
 
-  const handleSearch = async (query) => {
+  const handleSearch = async (query: string) => {
     try {
       const response = await axios.get(
         `https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`
       );
       setPokemon(response.data);
       setShow(true);
-    } catch (error) {
+    } catch (error: any) {
       console.log(error);
       if (error.response.status === 404) {
         setPokemon(null);

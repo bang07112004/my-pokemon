@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-export default function SearchBar({ onSearch }) {
+type Props = {
+  onSearch: (query: string) => void;
+};
+export default function SearchBar({ onSearch }: Props) {
   const [query, setQuery] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
