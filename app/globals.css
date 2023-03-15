@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+    .shadow-btn{
+        @apply shadow-md transition-all duration-300 shadow-black hover:shadow-lg hover:shadow-black hover:scale-110 active:shadow-md active:shadow-black active:scale-95;
+    }
+}

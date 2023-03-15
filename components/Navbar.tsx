@@ -26,17 +26,17 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col sticky bg-gradient-to-r from-pink-500 to-purple-500 z-50 top-0">
+    <div className="flex flex-col sticky bg-gradient-to-r from-pink-500 to-purple-500 z-50 top-0 py-3 px-2">
       <div className="flex justify-between items-center">
         <Link href={"/"}>Home</Link>
-        <SearchBar onSearch={handleSearch} />
+        <SearchBar />
       </div>
       <div className="flex justify-end">
         {pokemon && show && (
           <div className="flex gap-3 items-center">
             <button
               onClick={() => setShow(false)}
-              className="cursor-pointer border-2 px-5 py-2 max-h-fit"
+              className="cursor-pointer border-2 px-5 py-2 max-h-fit rounded-xl shadow-btn text-white font-semibold text-lg"
             >
               Close
             </button>
@@ -63,17 +63,18 @@ export default function Home() {
             </div>
           </div>
         )}
-        {pokemon === null && show && (
-          <div className="flex items-center gap-4 my-2">
-            <button
-              onClick={() => setShow(false)}
-              className="cursor-pointer border-2 px-5 py-2 max-h-fit"
-            >
-              Close
-            </button>
-            <h1>Not Found</h1>
-          </div>
-        )}
+        {pokemon === null ||
+          (pokemon === undefined && show && (
+            <div className="flex items-center gap-4 my-2">
+              <button
+                onClick={() => setShow(false)}
+                className="cursor-pointer border-2 px-5 py-2 max-h-fit shadow-btn"
+              >
+                Close
+              </button>
+              <h1>Not Found</h1>
+            </div>
+          ))}
       </div>
     </div>
   );
