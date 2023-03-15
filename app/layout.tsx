@@ -1,3 +1,4 @@
+import Lists from "@/components/Lists";
 import Navbar from "@/components/Navbar";
 import ToTopButton from "@/components/ToTopButton";
 import "./globals.css";
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
+        <Lists />
         {children}
         <ToTopButton />
       </body>
