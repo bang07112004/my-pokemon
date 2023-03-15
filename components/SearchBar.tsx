@@ -1,21 +1,24 @@
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-// type Props = {
-//   onSearch: (query: string) => void;
-// };
 export default function SearchBar({}) {
   const [query, setQuery] = useState("");
   const router = useRouter();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // onSearch(query);
-    router.push(`/pokemon/${query}`);
+    if (!query) {
+      return;
+    }
+    if (/^\d+$/.test(query) && parseInt(query) <= 651) {
+      router.push(`/pokemon/${query}`);
+    } else if (/^\d+$/.test(query) && parseInt(query) > 651) {
+      alert("Maximum id is 651");
+    } else router.push(`/pokemon/${query}`);
   };
 
   return (
     <form onSubmit={handleSubmit} className="flex items-center">
       <label htmlFor="search" className="mx-4">
-        Search for a Pokemon:
+        <h1 className="text-white font-bold text-lg">Enter Name or ID :</h1>
       </label>
       <input
         placeholder="Search Pokemon"
