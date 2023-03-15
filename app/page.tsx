@@ -1,4 +1,7 @@
+"use client";
 import AllFeed from "@/components/AllFeed";
+import AllPokemon from "@/components/AllPokemon";
+
 import React from "react";
 
 type Props = {};
@@ -6,7 +9,8 @@ type Props = {};
 function page({}: Props) {
   return (
     <div>
-      <AllFeed />
+      {/* <AllFeed /> */}
+      <AllPokemon />
     </div>
   );
 }
