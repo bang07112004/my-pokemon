@@ -1,6 +1,6 @@
-import getPokemon from "@/libs/getPokemon";
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 type Props = {};
 
 function Lists({}: Props) {
@@ -22,18 +22,148 @@ function Lists({}: Props) {
     { title: "Steel", id: "steel" },
     { title: "Fairy", id: "fairy" },
   ];
+  const [show, setShow] = useState(false);
   return (
-    <div className="flex gap-5 px-5 py-3">
-      {lists.map((list) => (
-        <Link
-          href={`/type?type=${list.title.toLowerCase()}`}
-          className={``}
-          key={list.id}
-        >
-          {list.title}
-        </Link>
-      ))}
-    </div>
+    <>
+      <div className="flex gap-4 justify-center items-center py-4">
+        {lists.map((list) => (
+          <Link href={`/type?type=${list.title.toLowerCase()}`} key={list.id}>
+            <h1
+              className={`text-lg font-semibold hidden md:inline-block ${
+                list.id === "grass"
+                  ? "text-[#76cc54]"
+                  : list.id === "fire"
+                  ? "text-[#ff4422]"
+                  : list.id === "water"
+                  ? "text-[#3299fe]"
+                  : list.id === "electric"
+                  ? "text-[#ffcd32]"
+                  : list.id === "normal"
+                  ? "text-[#aaaa99]"
+                  : list.id === "ice"
+                  ? "text-[#67cdff]"
+                  : list.id === "fighting"
+                  ? "text-[#ba5545]"
+                  : list.id === "poison"
+                  ? "text-[#7f3f72]"
+                  : list.id === "ground"
+                  ? "text-[#ddba54]"
+                  : list.id === "flying"
+                  ? "text-[#8898fe]"
+                  : list.id === "psychic"
+                  ? "text-[#ff5599]"
+                  : list.id === "bug"
+                  ? "text-[#abba22]"
+                  : list.id === "rock"
+                  ? "text-[#baab66]"
+                  : list.id === "ghost"
+                  ? "text-[#6667ba]"
+                  : list.id === "dragon"
+                  ? "text-[#7766ec]"
+                  : list.id === "dark"
+                  ? "text-[#765545]"
+                  : list.id === "steel"
+                  ? "text-[#ababbb]"
+                  : "text-[#ef99ef]"
+              }`}
+            >
+              {list.title}
+            </h1>
+          </Link>
+        ))}
+      </div>
+      <div className="md:hidden flex">
+        {show ? (
+          <div className=" fixed z-50 top-10 right-2 w-fit rounded-xl bg-gradient-to-b from-white to-gray-300">
+            <div className="flex justify-end ">
+              <svg
+                onClick={() => setShow(false)}
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6 cursor-pointer"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </div>
+
+            <div className="flex flex-col">
+              {lists.map((list) => (
+                <Link
+                  href={`/type?type=${list.title.toLowerCase()}`}
+                  key={list.id}
+                  className={`text-lg font-semibold px-5 py-1 ${
+                    list.id === "grass"
+                      ? "text-[#76cc54]"
+                      : list.id === "fire"
+                      ? "text-[#ff4422]"
+                      : list.id === "water"
+                      ? "text-[#3299fe]"
+                      : list.id === "electric"
+                      ? "text-[#ffcd32]"
+                      : list.id === "normal"
+                      ? "text-[#aaaa99]"
+                      : list.id === "ice"
+                      ? "text-[#67cdff]"
+                      : list.id === "fighting"
+                      ? "text-[#ba5545]"
+                      : list.id === "poison"
+                      ? "text-[#7f3f72]"
+                      : list.id === "ground"
+                      ? "text-[#ddba54]"
+                      : list.id === "flying"
+                      ? "text-[#8898fe]"
+                      : list.id === "psychic"
+                      ? "text-[#ff5599]"
+                      : list.id === "bug"
+                      ? "text-[#abba22]"
+                      : list.id === "rock"
+                      ? "text-[#baab66]"
+                      : list.id === "ghost"
+                      ? "text-[#6667ba]"
+                      : list.id === "dragon"
+                      ? "text-[#7766ec]"
+                      : list.id === "dark"
+                      ? "text-[#765545]"
+                      : list.id === "steel"
+                      ? "text-[#ababbb]"
+                      : "text-[#ef99ef]"
+                  }`}
+                >
+                  {list.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div
+            className="cursor-pointer fixed z-50 top-10 right-2"
+            onClick={() => setShow(true)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 
