@@ -47,11 +47,15 @@ function TypePage({}: Props) {
     setCurrentPage(page);
   };
 
-  const filteredPokemons = pokemons.filter((pokemon) =>
-    pokemon.types.some(
-      (t: { type: { name: string | null } }) => t.type.name === type
-    )
+  //   const filteredPokemons = pokemons.filter(
+  //     (pokemon) => pokemon.types[0].type.name === type
+  //   );
+  const filteredPokemons = pokemons.filter(
+    (pokemon) =>
+      pokemon.types[0].type.name === type ||
+      (pokemon.types[1] && pokemon.types[1].type.name === type)
   );
+
   const indexOfLastPokemon = currentPage * pokemonsPerPage;
   const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
   const currentPokemons = filteredPokemons.slice(

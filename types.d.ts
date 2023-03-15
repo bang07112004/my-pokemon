@@ -2,7 +2,7 @@ type Pokemon = {
   sprites: any;
   types: any;
   name: string;
-  weight: string;
+  weight: number;
   id: string;
   image: string;
   type: string[];

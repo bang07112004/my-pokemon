@@ -25,7 +25,11 @@ function Lists({}: Props) {
   return (
     <div className="flex gap-5 px-5 py-3">
       {lists.map((list) => (
-        <Link href={`/type?type=${list.title.toLowerCase()}`} key={list.id}>
+        <Link
+          href={`/type?type=${list.title.toLowerCase()}`}
+          className={``}
+          key={list.id}
+        >
           {list.title}
         </Link>
       ))}
