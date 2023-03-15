@@ -12,7 +12,7 @@ export default function SearchBar({}) {
       router.push(`/pokemon/${query}`);
     } else if (/^\d+$/.test(query) && parseInt(query) > 651) {
       alert("Maximum id is 651");
-    } else router.push(`/pokemon/${query}`);
+    } else router.push(`/pokemon/${query.toLowerCase()}`);
   };
 
   return (
@@ -23,7 +23,7 @@ export default function SearchBar({}) {
         id="search"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className="py-2 mx-1 px-5 rounded-xl shadow-md shadow-black focus:outline-none text-lg focus:shadow-lg focus:shadow-black transition-all duration-500 focus:scale-105"
+        className="py-2 mx-1 px-1 rounded-xl max-w-[200px] shadow-md shadow-black focus:outline-none text-lg focus:shadow-lg focus:shadow-black transition-all duration-500 focus:scale-105"
       />
       <button
         disabled={!query}

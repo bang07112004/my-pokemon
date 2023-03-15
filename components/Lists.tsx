@@ -29,7 +29,7 @@ function Lists({}: Props) {
         {lists.map((list) => (
           <Link href={`/type?type=${list.title.toLowerCase()}`} key={list.id}>
             <h1
-              className={`text-lg font-semibold hidden md:inline-block ${
+              className={`text-lg font-semibold hidden lg:inline-block ${
                 list.id === "grass"
                   ? "text-[#76cc54]"
                   : list.id === "fire"
@@ -72,7 +72,7 @@ function Lists({}: Props) {
           </Link>
         ))}
       </div>
-      <div className="md:hidden flex">
+      <div className="lg:hidden flex">
         {show ? (
           <div className=" fixed z-50 top-[100px] right-2 w-fit rounded-xl bg-gradient-to-b from-white to-gray-300">
             <div className="flex justify-end ">
@@ -83,7 +83,7 @@ function Lists({}: Props) {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6 cursor-pointer"
+                className="w-10 h-10 cursor-pointer"
               >
                 <path
                   strokeLinecap="round"
@@ -143,7 +143,7 @@ function Lists({}: Props) {
           </div>
         ) : (
           <div
-            className="cursor-pointer fixed z-50 top-[100px] right-2"
+            className="cursor-pointer fixed z-50 top-[100px] right-2 bg-black/50 rounded-full"
             onClick={() => setShow(true)}
           >
             <svg
@@ -152,7 +152,7 @@ function Lists({}: Props) {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-10 h-10"
             >
               <path
                 strokeLinecap="round"
