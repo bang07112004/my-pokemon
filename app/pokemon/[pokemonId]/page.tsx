@@ -13,7 +13,7 @@ type Props = {
 interface IPokemon {
   id: string;
   name: string;
-  weight: string;
+  weight: number;
   abilities: { ability: { name: string } }[];
   moves: { move: { name: string } }[];
   base_experience: number;
