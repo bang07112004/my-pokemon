@@ -35,7 +35,7 @@ async function getData() {
 function AllPokemon({}: Props) {
   const [data, setData] = useState<Pokemon[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [pokemonsPerPage] = useState<number>(20);
+  const [pokemonsPerPage] = useState<number>(100);
   const isFirstRender = useRef<boolean>(true);
   useEffect(() => {
     if (isFirstRender.current) {

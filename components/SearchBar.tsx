@@ -17,9 +17,6 @@ export default function SearchBar({}) {
 
   return (
     <form onSubmit={handleSubmit} className="flex items-center">
-      <label htmlFor="search" className="mx-4">
-        <h1 className="text-white font-bold text-lg">Enter Name or ID :</h1>
-      </label>
       <input
         placeholder="Search Pokemon"
         type="text"
