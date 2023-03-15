@@ -20,7 +20,7 @@ type Pokemon = {
 };
 async function getData() {
   const pokemonList = [];
-  for (let i = 1; i <= 600; i++) {
+  for (let i = 1; i <= 120; i++) {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
     // Recommendation: handle errors
     if (!res.ok) {
@@ -35,7 +35,7 @@ async function getData() {
 function AllPokemon({}: Props) {
   const [data, setData] = useState<Pokemon[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [pokemonsPerPage] = useState<number>(100);
+  const [pokemonsPerPage] = useState<number>(20);
   const isFirstRender = useRef<boolean>(true);
   useEffect(() => {
     if (isFirstRender.current) {
