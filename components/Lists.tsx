@@ -74,7 +74,7 @@ function Lists({}: Props) {
       </div>
       <div className="md:hidden flex">
         {show ? (
-          <div className=" fixed z-50 top-10 right-2 w-fit rounded-xl bg-gradient-to-b from-white to-gray-300">
+          <div className=" fixed z-50 top-[100px] right-2 w-fit rounded-xl bg-gradient-to-b from-white to-gray-300">
             <div className="flex justify-end ">
               <svg
                 onClick={() => setShow(false)}
@@ -143,7 +143,7 @@ function Lists({}: Props) {
           </div>
         ) : (
           <div
-            className="cursor-pointer fixed z-50 top-10 right-2"
+            className="cursor-pointer fixed z-50 top-[100px] right-2"
             onClick={() => setShow(true)}
           >
             <svg
