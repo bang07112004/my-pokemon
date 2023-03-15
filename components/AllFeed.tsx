@@ -26,7 +26,7 @@ function AllFeed({}: Props) {
   useEffect(() => {
     const fetchData = async () => {
       const pokemonList = [];
-      for (let i = 1; i <= 1000; i++) {
+      for (let i = 1; i <= 600; i++) {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
         const data = await response.json();
         pokemonList.push(data);
