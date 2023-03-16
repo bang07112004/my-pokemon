@@ -12,7 +12,7 @@ type Props = {
 function PokeFeed({ name, weight, id, image, type }: Props) {
   return (
     <div
-      className={`flex px-3 py-6 flex-col items-center justify-center border w-fit m-3 rounded-xl relative ${
+      className={`flex px-3 py-6 flex-col items-center justify-center border max-w-md min-w-fit m-3 rounded-xl relative ${
         type[0] === "grass"
           ? "bg-[#76cc54]"
           : type[0] === "fire"
