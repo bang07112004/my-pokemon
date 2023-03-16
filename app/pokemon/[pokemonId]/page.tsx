@@ -1,6 +1,4 @@
 "use client";
-export const dynamic = "force-dynamic";
-
 import React, { useEffect, useState } from "react";
 import getPokemon from "@/libs/getPokemon";
 import PokeFeed from "@/components/PokeFeed";
