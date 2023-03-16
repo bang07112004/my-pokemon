@@ -1,7 +1,5 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
-import Pagination from "./Pagination";
 import PokeFeed from "./PokeFeed";
 
 type Props = {};
@@ -20,7 +18,7 @@ type Pokemon = {
 };
 async function getData() {
   const pokemonList = [];
-  for (let i = 1; i <= 120; i++) {
+  for (let i = 1; i <= 651; i++) {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
     // Recommendation: handle errors
     if (!res.ok) {
@@ -32,41 +30,13 @@ async function getData() {
   }
   return pokemonList;
 }
-function AllPokemon({}: Props) {
-  const [data, setData] = useState<Pokemon[]>([]);
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [pokemonsPerPage] = useState<number>(30);
-  const isFirstRender = useRef<boolean>(true);
-  useEffect(() => {
-    if (isFirstRender.current) {
-      const cachedPage = localStorage.getItem("currentPage");
-      if (cachedPage) {
-        setCurrentPage(Number(cachedPage));
-      }
-      isFirstRender.current = false;
-    } else {
-      localStorage.setItem("currentPage", currentPage.toString());
-    }
-  }, [currentPage]);
-  useEffect(() => {
-    async function fetchData() {
-      const pokemonList = await getData();
-      setData(pokemonList);
-    }
-    fetchData();
-  }, []);
-  const onPageChange = (page: number) => {
-    setCurrentPage(page);
-  };
-  console.log(data);
-  const indexOfLastPokemon = currentPage * pokemonsPerPage;
-  const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
-  const currentPokemons = data.slice(indexOfFirstPokemon, indexOfLastPokemon);
+async function AllPokemon({}: Props) {
+  const pokemons = await getData();
   return (
     <div>
       <>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-          {currentPokemons.map((pokemon) => (
+          {pokemons.map((pokemon) => (
             <Link
               href={`/pokemon/${pokemon.name}`}
               key={pokemon.id}
@@ -84,12 +54,6 @@ function AllPokemon({}: Props) {
             </Link>
           ))}
         </div>
-        <Pagination
-          currentPage={currentPage}
-          totalPokemonCount={data.length}
-          onPageChange={onPageChange}
-          pokemonsPerPage={pokemonsPerPage}
-        />
       </>
     </div>
   );

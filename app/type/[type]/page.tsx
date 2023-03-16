@@ -55,8 +55,6 @@ async function TypePokemon({ params: { type } }: PageProps) {
             />
           </Link>
         ))}
-        {/* <AllFeed /> */}
-        {/* <AllPokemon /> */}
       </div>
     </div>
   );
