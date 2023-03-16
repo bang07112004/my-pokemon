@@ -27,7 +27,7 @@ function Lists({}: Props) {
     <>
       <div className="flex gap-4 justify-center items-center py-4">
         {lists.map((list) => (
-          <Link href={`/type?type=${list.title.toLowerCase()}`} key={list.id}>
+          <Link href={`/type/${list.title.toLowerCase()}`} key={list.id}>
             <h1
               className={`text-lg font-semibold hidden lg:inline-block ${
                 list.id === "grass"
@@ -96,7 +96,7 @@ function Lists({}: Props) {
             <div className="flex flex-col">
               {lists.map((list) => (
                 <Link
-                  href={`/type?type=${list.title.toLowerCase()}`}
+                  href={`/type/${list.title.toLowerCase()}`}
                   key={list.id}
                   className={`text-lg font-semibold px-5 py-1 ${
                     list.id === "grass"
