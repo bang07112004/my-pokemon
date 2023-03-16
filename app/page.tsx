@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import PokeFeed from "@/components/PokeFeed";
 import Link from "next/link";
 
