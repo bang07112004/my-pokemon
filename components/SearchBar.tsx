@@ -18,17 +18,17 @@ export default function SearchBar({}) {
   return (
     <form onSubmit={handleSubmit} className="flex items-center justify-center">
       <input
-        placeholder="Search Pokemon"
+        placeholder="Enter ID or Name"
         type="text"
         id="search"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className="py-2 mx-1 px-1 rounded-xl max-w-[200px] shadow-md shadow-black focus:outline-none text-lg focus:shadow-lg focus:shadow-black transition-all duration-500 focus:scale-105"
+        className="py-2 mx-2 px-1 rounded-xl max-w-[200px] shadow-md shadow-black focus:outline-none focus:shadow-lg focus:shadow-black transition-all duration-500 focus:scale-105"
       />
       <button
         disabled={!query}
         type="submit"
-        className="flex items-center px-4 py-2 rounded-xl border-2 text-white font-bold text-lg shadow-btn disabled:cursor-not-allowed disabled:hover:scale-100 disabled:active:scale-100 disabled:hover:shadow-md disabled:hover:shadow-black disabled:grayscale"
+        className="flex items-center px-3 py-2 rounded-xl border-2 text-white font-bold text-lg shadow-btn disabled:cursor-not-allowed disabled:hover:scale-100 disabled:active:scale-100 disabled:hover:shadow-md disabled:hover:shadow-black disabled:grayscale"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
