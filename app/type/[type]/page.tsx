@@ -24,7 +24,7 @@ type Pokemon = {
 };
 async function getData() {
   let pokemonLists = [];
-  for (let i = 1; i <= 651; i++) {
+  for (let i = 1; i <= 300; i++) {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
     if (!res.ok) {
       throw new Error("Failed to fetch data");
